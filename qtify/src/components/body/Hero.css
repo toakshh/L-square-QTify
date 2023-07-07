@@ -1,0 +1,12 @@
+.hero-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-color);
+    padding: 10px 15px;
+}
+.hero-text{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
