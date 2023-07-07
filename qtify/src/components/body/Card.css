@@ -1,0 +1,29 @@
+.card-main{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: max-content;
+    padding: 3rem;
+}
+.img-follow{    
+    background: url(../assets/RectangleCard.svg) no-repeat;
+}
+.image{
+    border-radius: 10px 10px 0 0 ;
+}
+.follow-content{
+    background-color: var(--dark-color);
+    width: fit-content;
+    padding: 4px 8px;
+    margin: 3px 6px 6px 6px;
+    border-radius: 10px;
+    align-items: flex-start;
+    color: var(--light-color);
+    font-size: 10px;
+}
+.title{
+    font-weight: 400;
+    font-size: 0.8rem;
+    color: var(--light-color);
+    margin-top: 6px;
+}
