@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import {ReactComponent as LogoImg} from "../assets/logo.svg";
+import {ReactComponent as LogoImg} from "../../assets/svg/logo.svg";
 import "./Logo.css"
 
 const Logo = () => {

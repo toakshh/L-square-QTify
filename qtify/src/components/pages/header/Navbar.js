@@ -2,7 +2,7 @@ import React from 'react';
 import "./Navbar.css";
 import Logo from './Logo';
 import Search from './Search';
-import Button from './Button';
+import Button from '../../common/Button';
 import { Grid } from '@mui/material';
 
 

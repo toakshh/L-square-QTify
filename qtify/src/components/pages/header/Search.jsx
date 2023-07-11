@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from '@mui/material';
-import {ReactComponent as Searchicon} from "../assets/Search icon.svg";
+import {ReactComponent as Searchicon} from "../../assets/svg/Search icon.svg";
 import "./Search.css";
 
 const Search = () => {

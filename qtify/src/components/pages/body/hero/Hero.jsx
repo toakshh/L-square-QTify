@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as HeroImage} from "../assets/vibratingheadphone.svg";
+import {ReactComponent as HeroImage} from "../../../assets/svg/vibratingheadphone.svg";
 import "./Hero.css"
 import { Grid } from '@mui/material';
 

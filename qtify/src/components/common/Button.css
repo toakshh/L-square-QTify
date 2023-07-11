@@ -1,8 +1,10 @@
+button{
+    cursor: pointer;
+}
 .feedback-btn{
     background-color: var(--dark-color);
     color: var(--theme-color);
     border: 1px solid var(--theme-color);
-    cursor: pointer;
     padding: 10px 16px;
     border-radius: 12px;
     gap: 10px;
@@ -13,4 +15,11 @@
 }
 .feedback-btn:active{
     background-color: rgba(105, 105, 105, 0.575);
+}
+@media only screen and (max-width: 714px ) {
+    .feedback-btn{
+        font-size: 12px;
+        line-height: 12px;
+        width: min-content;
+    }
 }

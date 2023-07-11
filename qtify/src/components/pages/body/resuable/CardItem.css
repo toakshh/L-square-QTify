@@ -1,15 +1,17 @@
 .card-main{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: max-content;
-    padding: 3rem;
+    max-width: fit-content;
+    cursor: pointer;
 }
+
 .img-follow{    
-    background: url(../assets/RectangleCard.svg) no-repeat;
+    background: url(../../../assets/svg/RectangleCard.svg) no-repeat;
 }
 .image{
     border-radius: 10px 10px 0 0 ;
+    width: 160px;
+    height: 170px;
 }
 .follow-content{
     background-color: var(--dark-color);
