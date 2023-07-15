@@ -3,15 +3,20 @@
     flex-direction: column;
     max-width: fit-content;
     cursor: pointer;
+    width: 160px;
+    height: fit-content;
+    overflow: hidden;
 }
 
 .img-follow{    
     background: url(../../../assets/svg/RectangleCard.svg) no-repeat;
+    
 }
 .image{
     border-radius: 10px 10px 0 0 ;
-    width: 160px;
+    width: 159px;
     height: 170px;
+    overflow: hidden;
 }
 .follow-content{
     background-color: var(--dark-color);
@@ -25,7 +30,8 @@
 }
 .title{
     font-weight: 400;
-    font-size: 0.8rem;
+    font-size: 14px;
     color: var(--light-color);
     margin-top: 6px;
+    text-align:center
 }

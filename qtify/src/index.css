@@ -10,6 +10,7 @@
 body{
   font-family: 'poppins', sans-serif;
   background-color: var(--dark-color);
+  /* overflow-x: hidden; */
 }
 *,*::after,*::before{
   box-sizing: border-box;
@@ -17,4 +18,22 @@ body{
 }
 .d-flex{
   display: flex;
+}
+/* to avoid blue layer in mobile devices */
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+}
+a:focus,a:visited,a:active{
+  outline: none;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+.swiper-slide{
+  width: min-content !important;
 }

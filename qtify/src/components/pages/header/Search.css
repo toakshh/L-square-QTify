@@ -14,14 +14,13 @@
 
 input{
     width: 90%;
-    line-height: 2rem;
+    height: 48px;
     padding: 3px 10px;
     border-radius: 8px;
     border: 1px solid var(--dark-color);
     border-right: none;
     background-color: var(--light-color);
     outline: none;
-   
 }
 .search-btn{
     width: 10%;
@@ -34,7 +33,7 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 2.5rem;
+    height: 48px;
     cursor: pointer;
-    min-width: 2rem;
+    min-width: 22px;
 }
