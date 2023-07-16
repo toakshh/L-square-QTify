@@ -1,0 +1,15 @@
+.filter-main{
+    display: inline-flex;
+    gap: 28px;
+    align-items: flex-start;
+    font-size: 16px;
+    font-weight: 600;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+@media only screen and (max-width:714px) {
+    .filter-main{
+        gap: 10px;
+    }
+}

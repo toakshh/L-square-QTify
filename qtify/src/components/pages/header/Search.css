@@ -1,5 +1,6 @@
 .search-main{
     /* border: 2px solid black; */
+    height: 48px;
     overflow: hidden;
     width: 60%;
     display: flex;
@@ -21,6 +22,10 @@ input{
     border-right: none;
     background-color: var(--light-color);
     outline: none;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    position: absolute;
+    left: 0;
 }
 .search-btn{
     width: 10%;
@@ -28,7 +33,7 @@ input{
     border: 1px solid var(--dark-color);
     border-radius:0 8px 8px 0;
     position: absolute;
-    right: 0;
+    right: 5px;
     top: 0;
     display: flex;
     align-items: center;

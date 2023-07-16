@@ -8,8 +8,15 @@ const AccordionParent = () => {
         <div className='accordion-parent'>
             <h1>FAQ</h1>
             <div className='accordion-child'>
-                <AccordionItem heading="one" paragraph="rositen sriotn otiens toisten aotinars toirsntot iensatoisartn rsoitern tioraetn raotirsnea toisarnt oarsitenar toiraset "/>
-                <AccordionItem heading="two" paragraph="nitrsnteoa rstneao teiaoston itoena toiesrtn oritnstie raotn itoarsnteraist onrati raotier sntoiarstn oitena tiearnti aostnsrtie orant eriaotn rtieosrnt ioet nairstoe rseiotno sitoen rsatioer stnoiretn resitonar toiaorns tsiotn satinarstiosrantiarestn tinrsatoiartn eoitnersat oiare"/>
+                <AccordionItem 
+                    heading="Is QTify free to use?" 
+                    paragraph="Yes! It is 100% free, and has 0% ads!"
+                />
+                
+                <AccordionItem 
+                    heading="Can I download and listen to songs offline?" 
+                    paragraph="Sorry, unfortunately we don't provide the service to download any songs."
+                />
             </div>
             
         </div>

@@ -11,7 +11,8 @@ const AccordionItem = (props) => {
             color: "var(--light-color)",
             borderRadius: "10px",
             border: "1px solid #FFF",
-            fontSize: "20px"
+            fontSize: "20px",
+            textAlign: "left"
         }}>
             <AccordionSummary
                 expandIcon={<ArrowDown />}

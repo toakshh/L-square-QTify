@@ -8,6 +8,7 @@
     flex-wrap: wrap;
     padding: 10px 0;
     overflow: hidden;
+    /* border: 2px solid red; */
 }
 .nav-contents{
     width: 100%;
@@ -15,7 +16,9 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 32px;
-    /* border: 2px solid red; */
+    /* border: 2px solid yellow; */
+    max-height:50px;
+    position: relative;
 }
 .feedback-btn{
     background-color: var(--dark-color);
@@ -23,11 +26,15 @@
     border: 1px solid var(--theme-color);
     padding: 10px 16px;
     border-radius: 12px;
-    gap: 10px;
     font-family: 'poppins', sans-serif;
     font-size: 18px;
     font-weight: 600;
+    /* flex: 2 0 170px; */
     
+    /* position: absolute;
+    right: 0;
+    top: 0; */
+   
 }
 .feedback-btn:active{
     background-color: rgba(105, 105, 105, 0.575);
@@ -41,6 +48,7 @@
 }
 @media only screen and (max-width: 410px ) {
     .nav-contents{
-        margin: 0;
+        margin:0 1px;
+        
     }   
 }

@@ -6,18 +6,16 @@
     width: 160px;
     height: fit-content;
     overflow: hidden;
+    gap: 6px;
 }
 
-.img-follow{    
-    background: url(../../../assets/svg/RectangleCard.svg) no-repeat;
-    
-}
-.image{
+/* .image{
     border-radius: 10px 10px 0 0 ;
     width: 159px;
     height: 170px;
     overflow: hidden;
-}
+} */
+
 .follow-content{
     background-color: var(--dark-color);
     width: fit-content;

@@ -16,6 +16,10 @@
 .accordion-child{
     margin: 50px 0;
     /* border: 2px solid yellowgreen; */
-    max-width: 50%;
-
+    width: 80%;
+}
+@media only screen and (max-width:714px){
+    .accordion-child{
+        max-width: 90%;
+    }
 }
