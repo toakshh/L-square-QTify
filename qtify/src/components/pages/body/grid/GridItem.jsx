@@ -2,23 +2,12 @@ import React from 'react'
 import CardItem from "../resuable/CardItem";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper/modules";
-import Filter from '../filter/Filter';
 import "./Grid.css";
 
 const GridItem = (props) => {
-    const {filter, data,collapse}= props;
+    const { data,collapse}= props;
     
   return (
-    <>
-    {/* rendering filter section conditionally with filter prop*/}
-    {filter &&
-        <div className='filter-section'>
-            {/* filter component mounted here */}
-            <Filter /> 
-        </div>
-    }
-
-    {/* card container div */}
     <div className={`grid-contents ${collapse}`}>
         {/* removing carousel function when show all is pressed */}
         {collapse === "Collapse" ? (
@@ -26,7 +15,7 @@ const GridItem = (props) => {
                 <div key={item.id}>
                     {item.likes ? <CardItem img={item.image} likes={item.likes} title={item.title} songs />
                         :
-                        <CardItem img={item.image} followCount={item.follows} title={item.title} />
+                        <CardItem img={item.image} followCount={item.follows} title={item.title} tooltip={item.songs.length}/>
                     }
                 </div>
             ))
@@ -48,7 +37,7 @@ const GridItem = (props) => {
                                 {/* checking if data is albums or songs */}
                                 {item.likes ? <CardItem img={item.image} likes={item.likes} title={item.title} songs />
                                     :
-                                    <CardItem img={item.image} followCount={item.follows} title={item.title} />
+                                    <CardItem img={item.image} followCount={item.follows} title={item.title} tooltip={item.songs.length}/>
                                 }
                             </SwiperSlide>
                         )
@@ -57,7 +46,6 @@ const GridItem = (props) => {
 
             </Swiper>)}
     </div>
-    </>
   )
 }
 
