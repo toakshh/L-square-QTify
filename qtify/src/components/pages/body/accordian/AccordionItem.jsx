@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 import { ReactComponent as ArrowDown } from '../../../assets/svg/ArrowDown.svg';
 import "./AccordionItem.css"
@@ -38,4 +38,4 @@ const AccordionItem = (props) => {
     )
 }
 
-export default AccordionItem
+export default memo(AccordionItem)

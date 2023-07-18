@@ -1,36 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,memo } from 'react';
 import "./Grid.css";
-import axios from 'axios';
-import 'swiper/css';
 import Button from '../../../common/Button';
 import GridItem from './GridItem';
 import Filter from '../filter/Filter';
+import Error from '../../error/Error'
 import { CircularProgress,Box,Typography } from '@mui/material';
-
+import useApiCall from '../../../../hooks/useApiCall';
 
 
 const Grid = (props) => {
     const { name, URL, filter } = props;
-    const [data, setData] = useState([]); //list of items from top albums   
     const [collapse, setCollapse] = useState("Show all"); //handle show all and collapse button
-    const [loading,setLoading] = useState(false);
-    useEffect(() => {
-        fetchApi()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    const [data,loading,error]= useApiCall(URL); //custom hook to fetch api data
 
-    const fetchApi = async () => {
-        try {
-            setLoading(true);
-            const getApiReq = await axios.get(URL);
-            setData(getApiReq.data);
-            setLoading(false);
-        } catch (e) {
-            setLoading(true)
-            console.log(e.message)
-            setLoading(false)
-        }
-    }
     const handleCollapse = () => {
         if (collapse === "Show all") {
             setCollapse("Collapse");
@@ -45,7 +27,7 @@ const Grid = (props) => {
                 <h3>{name}</h3>
                 <Button btnName={collapse} clickProp={handleCollapse} />
             </div>
-            {
+            {error ? <Error msg={error}/> :
                 loading ? (
                     <Box className="loading">
                       <CircularProgress color="success" />
@@ -55,7 +37,7 @@ const Grid = (props) => {
                     </Box>)
                     :
                     (filter ?
-                        <Filter data={data} collapse={collapse} />
+                        <Filter data2={data} collapse={collapse} />
                         :
                         <GridItem data={data} collapse={collapse} />)
             }
@@ -63,4 +45,4 @@ const Grid = (props) => {
     )
 }
 
-export default Grid
+export default memo(Grid)

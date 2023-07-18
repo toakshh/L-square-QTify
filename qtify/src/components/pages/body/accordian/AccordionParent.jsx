@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo} from 'react';
 import "./AccordionParent.css"
 import AccordionItem from './AccordionItem';
 
@@ -24,4 +24,4 @@ const AccordionParent = () => {
     )
 }
 
-export default AccordionParent
+export default memo(AccordionParent)

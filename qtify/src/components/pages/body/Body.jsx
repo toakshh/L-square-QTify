@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react';
 import Grid  from './grid/Grid';
 import apiUrl from '../../assets/api/index';
 import Hero from './hero/Hero';
@@ -12,11 +12,11 @@ const Body = () => {
         <Grid name="Top Albums" URL = {apiUrl.top} />
         <Grid name="New Albums" URL= {apiUrl.new} />
         <div className='grid-filter'>
-          <Grid name="Songs" URL= {apiUrl.songs} filter />
+          <Grid name="Songs" URL= {apiUrl.songs} filter={true} />
         </div>
         <AccordianParent />
     </>
   )
 }
 
-export default Body
+export default memo(Body)

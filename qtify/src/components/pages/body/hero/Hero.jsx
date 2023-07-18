@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo} from 'react';
 import {ReactComponent as HeroImage} from "../../../assets/svg/vibratingheadphone.svg";
 import "./Hero.css"
 import { Grid } from '@mui/material';
@@ -15,4 +15,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default memo(Hero)

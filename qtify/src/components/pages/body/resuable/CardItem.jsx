@@ -1,15 +1,35 @@
-import React from 'react';
+import React,{memo} from 'react';
 import "./CardItem.css";
-import { Card, CardActionArea,Tooltip,Zoom } from '@mui/material';
+import { Card, CardActionArea,Tooltip,Zoom, styled, tooltipClasses } from '@mui/material';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const CardItem = (props) => {
   const { img, followCount, title, songs, likes ,tooltip} = props
+
+  const ThemedTooltip = styled(({ className, ...props }) => (
+  <Tooltip {...props} arrow classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.arrow}`]: {
+    color: "var(--dark-color)",
+  },
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "var(--dark-color)",
+    color:theme.palette.primary.main,
+    padding: "10px",
+    fontSize:"12px",
+    fontWeight: "bold",
+    borderRadius:"15px",
+    boxShadow: " 0 0 15px green",
+    border: "1px solid green",
+  },
+  
+}));
+
   return (
 
     <div className="card-main">
       { tooltip ? 
-      <Tooltip title={`${tooltip} songs`} placement='top' TransitionComponent={Zoom} disableFocusListener disableTouchListener arrow>
+      <ThemedTooltip title={`${tooltip} songs`} placement='top' TransitionComponent={Zoom} disableFocusListener enterTouchDelay={0}  >
       <Card style={{ borderRadius: "10px" }}>
         <CardActionArea>
           <div className='img-follow'>
@@ -25,7 +45,7 @@ const CardItem = (props) => {
           </div>
         </CardActionArea>
       </Card>
-      </Tooltip>
+      </ThemedTooltip>
       :
       <Card style={{ borderRadius: "10px" }}>
         <CardActionArea>
@@ -49,4 +69,4 @@ const CardItem = (props) => {
   )
 }
 
-export default CardItem
+export default memo(CardItem);

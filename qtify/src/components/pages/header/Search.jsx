@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{memo} from 'react';
 import { Grid } from '@mui/material';
 import {ReactComponent as Searchicon} from "../../assets/svg/Search icon.svg";
 import "./Search.css";
@@ -15,4 +15,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default memo(Search)

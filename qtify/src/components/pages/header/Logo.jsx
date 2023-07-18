@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{memo} from 'react';
 import { Grid } from '@mui/material';
 import {ReactComponent as LogoImg} from "../../assets/svg/logo.svg";
 import "./Logo.css"
@@ -11,4 +11,4 @@ const Logo = () => {
     )
 }
 
-export default Logo
+export default memo(Logo)

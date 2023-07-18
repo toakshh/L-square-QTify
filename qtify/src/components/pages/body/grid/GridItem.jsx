@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{memo} from 'react';
 import CardItem from "../resuable/CardItem";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 import { Navigation } from "swiper/modules";
 import "./Grid.css";
 
@@ -49,4 +50,4 @@ const GridItem = (props) => {
   )
 }
 
-export default GridItem
+export default memo(GridItem)
