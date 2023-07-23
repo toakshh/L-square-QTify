@@ -1,17 +1,17 @@
-import React, { useEffect, useState,memo } from 'react';
+import React, { useState, memo } from 'react';
 import "./Grid.css";
 import Button from '../../../common/Button';
 import GridItem from './GridItem';
 import Filter from '../filter/Filter';
 import Error from '../../error/Error'
-import { CircularProgress,Box,Typography } from '@mui/material';
+import { CircularProgress, Box, Typography } from '@mui/material';
 import useApiCall from '../../../../hooks/useApiCall';
 
 
 const Grid = (props) => {
     const { name, URL, filter } = props;
     const [collapse, setCollapse] = useState("Show all"); //handle show all and collapse button
-    const [data,loading,error]= useApiCall(URL); //custom hook to fetch api data
+    const [data, loading, error] = useApiCall(URL); //custom hook to fetch api data
 
     const handleCollapse = () => {
         if (collapse === "Show all") {
@@ -20,6 +20,7 @@ const Grid = (props) => {
             setCollapse("Show all")
         }
     }
+
     return (
         <div className='grid-main'>
 
@@ -27,17 +28,22 @@ const Grid = (props) => {
                 <h3>{name}</h3>
                 <Button btnName={collapse} clickProp={handleCollapse} />
             </div>
-            {error ? <Error msg={error}/> :
+            {/* if gets any error then show error page */}
+            {error ? 
+                <Error msg={error} /> 
+                :
+                // if api loading then show loading component
                 loading ? (
                     <Box className="loading">
-                      <CircularProgress color="success" />
-                      <Typography gutterBottom >
-                        Loading Products...
-                      </Typography>
+                        <CircularProgress color="success" />
+                        <Typography gutterBottom >
+                            Loading files...
+                        </Typography>
                     </Box>)
                     :
+                    // filter exist in prop then show filter component else griditems
                     (filter ?
-                        <Filter data2={data} collapse={collapse} />
+                        <Filter data={data} collapse={collapse} />
                         :
                         <GridItem data={data} collapse={collapse} />)
             }

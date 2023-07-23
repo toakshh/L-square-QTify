@@ -1,15 +1,15 @@
-import React, { useEffect, useState, memo } from 'react'
+import React, { useEffect, useState, memo, useCallback } from 'react'
 import genres from "../../../assets/api/index"
-import "./Filter.css"
 import { Tab, Box } from '@mui/material';
 import { TabContext, TabList, TabPanel, } from '@mui/lab';
 import GridItem from '../grid/GridItem';
 import useApiCall from '../../../../hooks/useApiCall';
+import "./Filter.css"
 
 
 
 const Filter = (props) => {
-  const { data2, collapse } = props
+  const { data, collapse } = props
   const [songs, setSongs] = useState([]);
   const URL = genres.genres;
   const [value, setValue] = useState("all");
@@ -23,9 +23,9 @@ const Filter = (props) => {
     }
   }, [apiData, loading, error]);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = useCallback( (event, newValue) => {
     setValue(newValue)
-  };
+  },[])
 
 
 
@@ -33,8 +33,10 @@ const Filter = (props) => {
     <div className='filter-main'>
       <Box sx={{ typography: 'body1', color: "white" }} >
         <TabContext value={value} >
+          {/* only render this component when songs data are available */}
           {songs && 
           <>          
+          {/* filter headers */}
           <Box style={{ color: 'white', display: 'flex', width: "60%" }} >
             <TabList onChange={handleChange}
               textColor="inherit"
@@ -50,13 +52,13 @@ const Filter = (props) => {
               })}
             </TabList>
           </Box>
-          
+          {/* body of filtered songs */}
           <TabPanel value={value} sx={{ padding: "24px 0"}}>
             {
               value === "all" ?
-                <GridItem data={data2} collapse={collapse} />
+                <GridItem data={data} collapse={collapse} />
                 :
-                <GridItem data={data2.filter(item => item.genre.key === value)} collapse={collapse} />
+                <GridItem data={data.filter(item => item.genre.key === value)} collapse={collapse} />
             }
           </TabPanel>
           </>}

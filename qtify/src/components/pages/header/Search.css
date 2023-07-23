@@ -11,6 +11,7 @@
     max-width: 80%;
     position: relative;
     min-width: 80%;
+    position: relative;
 }
 
 input{
@@ -42,3 +43,16 @@ input{
     cursor: pointer;
     min-width: 22px;
 }
+/* .search-parent::after{
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: aliceblue;
+    height: 50dvh;
+    width:  70dvw;
+    overflow: scroll;
+    position: absolute;
+    
+} */
