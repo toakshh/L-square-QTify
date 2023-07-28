@@ -1,15 +1,32 @@
 import './App.css';
 import Body from './components/pages/body/Body';
+import Album from './components/pages/body/album/Album';
 import Navbar from './components/pages/header/Navbar';
-// import Context from './context/Context';
+import NotFound from './components/pages/notFound/NotFound';
+import { DataContextProvider } from './context/DataContext';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import { createBrowserRouter,RouterProvider } from 'react-router-dom' ;
 
 function App() {
+  // const body= createBrowserRouter([
+  //   {
+  //     path:"/",
+  //     element: <Body />,
+  //   },
+  // ])
+
   return (
     <div className="App">
-      {/* <Context.Provider> */}
-      <Navbar />
-      <Body />
-      {/* </Context.Provider> */}
+      <DataContextProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Body />} />
+            <Route path="/album/:slug" element={<Album />} />
+            <Route path='*' element={<NotFound/>} />
+          </Routes>
+        </BrowserRouter>
+      </DataContextProvider>
     </div>
   );
 }

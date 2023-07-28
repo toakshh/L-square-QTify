@@ -63,7 +63,7 @@ const CardItem = (props) => {
         </CardActionArea>
       </Card>
       }
-      <div className='title'>{title}</div>
+      <div className='title'>{title}</div>  
     </div >
 
   )

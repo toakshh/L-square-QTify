@@ -5,6 +5,7 @@ import Hero from './hero/Hero';
 import "./Body.css"
 import AccordionParent from './accordian/AccordionParent';
 
+
 const Body = () => {
   return (
     <>
@@ -15,6 +16,7 @@ const Body = () => {
           <Grid name="Songs" URL= {apiUrl.songs} filter />
         </div>
         <AccordionParent />
+        
     </>
   )
 }

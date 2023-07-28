@@ -1,0 +1,35 @@
+.album-main{
+    display: flex;
+    padding: 5dvh 5dvw;
+    flex-direction: column;
+    color: var(--light-color);
+    text-align: left;
+}
+.album-detail{
+    display: flex;
+    
+}
+.cover-image > img{
+    width: 20vw;
+    min-width: 120px;
+    height: auto;
+    border-radius: 20px;
+    border: 12px solid var(--dark-color);
+    margin-right: 3rem;
+}
+.text-info{
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+.album-songs{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}

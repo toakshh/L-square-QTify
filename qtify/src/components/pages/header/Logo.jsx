@@ -1,13 +1,12 @@
 import React,{memo} from 'react';
-import { Grid } from '@mui/material';
 import {ReactComponent as LogoImg} from "../../assets/svg/logo.svg";
-import "./Logo.css"
+import { Link } from 'react-router-dom';
 
 const Logo = () => {
     return (
-        <Grid item xs={3}>
-            <a href='./'><LogoImg /></a>
-        </Grid>
+        <>
+            <Link to='/'><LogoImg /></Link>
+        </>
     )
 }
 

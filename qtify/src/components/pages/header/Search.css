@@ -1,22 +1,26 @@
 .search-main{
     /* border: 2px solid black; */
+    /* overflow: hidden; */ 
     height: 48px;
-    overflow: hidden;
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: center;
 }
 .search-parent{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center ;
     /* border: 2px solid red; */
-    max-width: 80%;
-    position: relative;
-    min-width: 80%;
+}
+.searchWithDropdown{
+    width: 100%;
     position: relative;
 }
-
-input{
-    width: 90%;
+.input{
+    width: 100%;
     height: 48px;
+    min-height: 48px;
     padding: 3px 10px;
     border-radius: 8px;
     border: 1px solid var(--dark-color);
@@ -25,34 +29,51 @@ input{
     outline: none;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-    position: absolute;
-    left: 0;
 }
+.dropdown-main{
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 110%;
+    margin-top: 12px;
+    border-radius: 0 0 10px 10px;
+    z-index: 2 !important;
+    overflow: scroll;
+    border: 1px solid var(--theme-color);
+    border-top: none;
+    height: min-content;
+    max-height: 60dvh;
+    /* border: 2px solid blue; */
+
+}
+
 .search-btn{
     width: 10%;
     background-color: var(--light-color);
     border: 1px solid var(--dark-color);
     border-radius:0 8px 8px 0;
-    position: absolute;
-    right: 5px;
-    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 48px;
     cursor: pointer;
-    min-width: 22px;
+    min-width: 36px;
+    margin-left: -10px;
+    z-index: 2;
 }
-/* .search-parent::after{
-    content: "";
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    background-color: aliceblue;
-    height: 50dvh;
-    width:  70dvw;
-    overflow: scroll;
-    position: absolute;
-    
-} */
+
+@media only screen and (max-width: 714px) {
+    .dropdown-main{
+        width: 80dvw;
+        margin-left: -100px;
+    }
+}
+@media only screen and (max-width: 410px) {
+    .dropdown-main{
+        width: 80dvw;
+        margin-left: -35px;
+    }
+}

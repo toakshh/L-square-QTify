@@ -4,8 +4,9 @@ import Button from '../../../common/Button';
 import GridItem from './GridItem';
 import Filter from '../filter/Filter';
 import Error from '../../error/Error'
-import { CircularProgress, Box, Typography } from '@mui/material';
+// import { CircularProgress, Box, Typography } frm '@mui/material';
 import useApiCall from '../../../../hooks/useApiCall';
+import Loading from '../../loading/Loading';
 
 
 const Grid = (props) => {
@@ -33,13 +34,7 @@ const Grid = (props) => {
                 <Error msg={error} /> 
                 :
                 // if api loading then show loading component
-                loading ? (
-                    <Box className="loading">
-                        <CircularProgress color="success" />
-                        <Typography gutterBottom >
-                            Loading files...
-                        </Typography>
-                    </Box>)
+                loading ? (<Loading />)
                     :
                     // filter exist in prop then show filter component else griditems
                     (filter ?

@@ -1,40 +1,55 @@
-import React,{memo, useState, useRef, useContext} from 'react';
-import { Grid } from '@mui/material';
-import {ReactComponent as Searchicon} from "../../assets/svg/Search icon.svg";
+import React, { memo, useState, useRef, useContext, useCallback } from 'react';
+import { ReactComponent as Searchicon } from "../../assets/svg/Search icon.svg";
 import "./Search.css";
-// import apiURL from "../../assets/api/index";
-// import useApiCall from "../../../hooks/useApiCall";
-// import Context from '../../../context/Context';
+import { DataContext } from '../../../context/DataContext';
+import DropDownSuggestion from './DropDownSuggestion';
+
 
 
 const Search = () => {
-    // const [data] = useApiCall(apiURL.songs)
-    // const [showDropDown, setShowDropDown] = useState([]);
-    // const [show,setShow] = useState(false);
+    const [showD, setShowD] = useState(false);
+    const show = useContext(DataContext);
+    const dropDownData = show.topAlbumData;
+    const searched = useRef("");
 
-    const first = useRef("");
-    const handleSearching= ()=>{
-        // if(first.current.value.length>=1) setShow(true);
-        // if(first.current.value.length===0) setShow(false);
-        // return first.current.value;
-    }
-    const handleSearch= (e)=>{
+    const handleSearching = useCallback(() => {
+        const searchText = searched?.current?.value.toLowerCase();
+        const filteredData = dropDownData.filter((item) => {
+            const title = item?.title?.toLowerCase();
+            return title.includes(searchText);
+        });
+        show.setShowDropDown(filteredData);
+        setShowD(searchText.length > 0);
+
+    }, [dropDownData, show])
+
+    const handleSearch = useCallback((e) => {
         e.preventDefault();
-        // const searched= data.filter(item =>{
-        //     const title= item.title.toLowerCase();
-        //     return title.includes(first.current.value.toLowerCase());
-        // })
-        // setShowDropDown(searched)
-    }
-    return (
-        <Grid className='search-main' item xs={6}>
-            <form className='search-parent'>
-                <input type="text" placeholder='Search an album of your choice' onChange={handleSearching} ref={first} />
-                <button className='search-btn' onClick={(e)=>handleSearch(e)}><Searchicon /></button>
-            </form>
+        const searchText = searched?.current?.value.toLowerCase();
+        if (searched?.current?.value === "") return;
 
-            
-        </Grid>
+        const filteredData = dropDownData.filter((item) => {
+            const title = item?.title?.toLowerCase();
+            return title.includes(searchText);
+        });
+        show.setShowDropDown(filteredData);
+        searched.current.value ="";
+        setShowD(searchText.length > 0);
+    }, [dropDownData, show])
+
+
+    return (
+        <>
+            <div className='search-main' >
+                <form className='search-parent'>
+                    <div className='searchWithDropdown'>
+                        <input type="text" placeholder='Search an album of your choice' ref={searched} className='input' onChange={handleSearching} />
+                        {showD && <div className='dropdown-main'><DropDownSuggestion searched={searched}/></div>}
+                    </div>
+                    <button className='search-btn' onClick={(e) => handleSearch(e)}><Searchicon /></button>
+                </form>
+            </div>
+        </>
     )
 }
 

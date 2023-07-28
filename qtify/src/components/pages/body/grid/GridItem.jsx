@@ -14,7 +14,8 @@ const GridItem = (props) => {
         {collapse === "Collapse" ? (
             data.map((item) => (
                 <div key={item.id}>
-                    {item.likes ? <CardItem img={item.image} likes={item.likes} title={item.title} songs />
+                    {item.likes ? 
+                        <CardItem img={item.image} likes={item.likes} title={item.title} songs />
                         :
                         <CardItem img={item.image} followCount={item.follows} title={item.title} tooltip={item.songs.length}/>
                     }
