@@ -8,7 +8,7 @@ const DropDownSuggestion = ({searched}) => {
     const data = title.showDropDown
     // console.log("data ", data)
     const handleDropDown= ()=>{
-        searched.current.value= "";
+        //searched.current.value= "";
         title.setShowDropDown([])
     }
     return (
